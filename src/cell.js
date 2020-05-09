@@ -20,9 +20,11 @@ class Cell {
   /**
    * @description Constructor that creates an instance of a cell.
    *
+   * @param {number} [xCoord=0] - X coordinate of the cell
    * @memberof Cell
    */
-  constructor() {
+  constructor(xCoord = 0) {
+    this.xCoord = xCoord;
   }
 }
 
