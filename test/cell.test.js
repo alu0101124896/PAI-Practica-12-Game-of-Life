@@ -37,5 +37,9 @@ describe('Cell Class', () => {
       expectOnCellTest(MY_CELL).to.have.property('alive');
       expectOnCellTest(MY_CELL.alive).to.be.a('boolean');
     });
+
+    it('Default xCoord is 0', () => {
+      expectOnCellTest(MY_CELL.xCoord).to.be.equal(0);
+    });
   });
 });
