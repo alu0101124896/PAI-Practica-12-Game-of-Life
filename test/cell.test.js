@@ -45,5 +45,9 @@ describe('Cell Class', () => {
     it('Default yCoord is 0', () => {
       expectOnCellTest(MY_CELL.yCoord).to.be.equal(0);
     });
+
+    it('Default alive is false', () => {
+      expectOnCellTest(MY_CELL.alive).to.be.equal(false);
+    });
   });
 });
