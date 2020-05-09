@@ -50,4 +50,12 @@ describe('Cell Class', () => {
       expectOnCellTest(MY_CELL.alive).to.be.equal(false);
     });
   });
+
+  describe('Non default property values', () => {
+    const MY_CELL = new CellOnCellTest(5, 10, true);
+
+    it('Modifies default xCoord correctly', () => {
+      expectOnCellTest(MY_CELL.xCoord).to.be.equal(5);
+    });
+  });
 });
