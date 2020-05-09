@@ -57,5 +57,9 @@ describe('Cell Class', () => {
     it('Modifies default xCoord correctly', () => {
       expectOnCellTest(MY_CELL.xCoord).to.be.equal(5);
     });
+
+    it('Modifies default yCoord correctly', () => {
+      expectOnCellTest(MY_CELL.yCoord).to.be.equal(10);
+    });
   });
 });
