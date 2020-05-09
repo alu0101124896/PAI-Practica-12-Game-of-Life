@@ -85,7 +85,7 @@ class Board {
   }
 
   /**
-   * @description Function that draws the grid at the given canvas
+   * @description Function that draws the board at the given canvas
    *
    * @param {*} CANVAS
    * @param {*} CONTEXT

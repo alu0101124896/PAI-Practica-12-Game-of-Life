@@ -23,6 +23,11 @@ describe('Board Class', () => {
   describe('Default properties', () => {
     const MY_BOARD = new BoardOnBoardTest();
 
+    it('Board has a nRows', () => {
+      expectOnBoardTest(MY_BOARD).to.have.property('nRows');
+      expectOnBoardTest(MY_BOARD.nRows).to.be.a('number');
+    });
+
     it('Board has a cellSize', () => {
       expectOnBoardTest(MY_BOARD).to.have.property('cellSize');
       expectOnBoardTest(MY_BOARD.cellSize).to.be.a('number');
