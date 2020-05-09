@@ -23,47 +23,56 @@ describe('Cell Class', () => {
   describe('Default properties', () => {
     const MY_CELL = new CellOnCellTest();
 
-    it('Cell has a xCoord', () => {
-      expectOnCellTest(MY_CELL).to.have.property('xCoord');
-      expectOnCellTest(MY_CELL.xCoord).to.be.a('number');
+    it('Cell has a row', () => {
+      expectOnCellTest(MY_CELL).to.have.property('row');
+      expectOnCellTest(MY_CELL.row).to.be.a('number');
     });
 
-    it('Cell has a yCoord', () => {
-      expectOnCellTest(MY_CELL).to.have.property('yCoord');
-      expectOnCellTest(MY_CELL.yCoord).to.be.a('number');
+    it('Cell has a column', () => {
+      expectOnCellTest(MY_CELL).to.have.property('column');
+      expectOnCellTest(MY_CELL.column).to.be.a('number');
     });
 
-    it('Cell has a alive', () => {
-      expectOnCellTest(MY_CELL).to.have.property('alive');
-      expectOnCellTest(MY_CELL.alive).to.be.a('boolean');
+    it('Cell has an aliveState', () => {
+      expectOnCellTest(MY_CELL).to.have.property('aliveState');
+      expectOnCellTest(MY_CELL.aliveState).to.be.a('boolean');
     });
 
-    it('Default xCoord is 0', () => {
-      expectOnCellTest(MY_CELL.xCoord).to.be.equal(0);
+    it('Cell has an aliveNeighbours', () => {
+      expectOnCellTest(MY_CELL).to.have.property('aliveNeighbours');
+      expectOnCellTest(MY_CELL.aliveNeighbours).to.be.a('number');
     });
 
-    it('Default yCoord is 0', () => {
-      expectOnCellTest(MY_CELL.yCoord).to.be.equal(0);
+    it('Default row is 0', () => {
+      expectOnCellTest(MY_CELL.row).to.be.equal(0);
     });
 
-    it('Default alive is false', () => {
-      expectOnCellTest(MY_CELL.alive).to.be.equal(false);
+    it('Default column is 0', () => {
+      expectOnCellTest(MY_CELL.column).to.be.equal(0);
+    });
+
+    it('Default aliveState is false', () => {
+      expectOnCellTest(MY_CELL.aliveState).to.be.equal(false);
+    });
+
+    it('Default aliveNeighbours is false', () => {
+      expectOnCellTest(MY_CELL.aliveNeighbours).to.be.equal(0);
     });
   });
 
   describe('Non default property values', () => {
     const MY_CELL = new CellOnCellTest(5, 10, true);
 
-    it('Modifies default xCoord correctly', () => {
-      expectOnCellTest(MY_CELL.xCoord).to.be.equal(5);
+    it('Modifies default row correctly', () => {
+      expectOnCellTest(MY_CELL.row).to.be.equal(5);
     });
 
-    it('Modifies default yCoord correctly', () => {
-      expectOnCellTest(MY_CELL.yCoord).to.be.equal(10);
+    it('Modifies default column correctly', () => {
+      expectOnCellTest(MY_CELL.column).to.be.equal(10);
     });
 
-    it('Modifies default alive correctly', () => {
-      expectOnCellTest(MY_CELL.alive).to.be.equal(true);
+    it('Modifies default aliveState correctly', () => {
+      expectOnCellTest(MY_CELL.aliveState).to.be.equal(true);
     });
   });
 });

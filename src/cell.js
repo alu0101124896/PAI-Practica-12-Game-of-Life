@@ -5,13 +5,13 @@
  * @summary University of La Laguna
  * @summary Computer Science - Interactive Aplication Programing
  * @description This program implements a cell class for the Game of Life. More
- *  info about it here: https://en.wikipedia.org/wiki/Conway's_Game_of_Life
+ *  info about it here: "https://en.wikipedia.org/wiki/Conway's_Game_of_Life"
  */
 
 "use strict";
 
 /**
- * @description Class representing a cell
+ * @description Class representing a cell for the Game of Life.
  *
  * @class Cell
  */
@@ -20,15 +20,32 @@ class Cell {
   /**
    * @description Constructor that creates an instance of a cell.
    *
-   * @param {number} [xCoord=0] - X coordinate of the cell
-   * @param {number} [yCoord=0] - Y coordinate of the cell
-   * @param {boolean} [alive=false] - Alive state of the cell
+   * @param {number} [row=0] - Row of the cell on the board
+   * @param {number} [column=0] - Column of the cell on the board
+   * @param {boolean} [aliveState=false] - Alive state of the cell
    * @memberof Cell
    */
-  constructor(xCoord = 0, yCoord = 0, alive = false) {
-    this.xCoord = xCoord;
-    this.yCoord = yCoord;
-    this.alive = alive;
+  constructor(row = 0, column = 0, aliveState = false) {
+    this.row = row;
+    this.column = column;
+    this.aliveState = aliveState;
+    this.aliveNeighbours = 0;
+  }
+
+  /**
+   * @description Function that updates the state of the cell
+   *
+   * @memberof Cell
+   */
+  updateState() {
+    if (this.aliveState && (this.aliveNeighbours !== 3) &&
+      (this.aliveNeighbours !== 2)) {
+        this.aliveState = false;
+    } else if (!this.aliveState && this.aliveNeighbours === 3) {
+      this.aliveState = true;
+    } else {
+      // The state remains the same
+    }
   }
 }
 
