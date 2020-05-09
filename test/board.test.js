@@ -50,4 +50,12 @@ describe('Board Class', () => {
       expectOnBoardTest(MY_BOARD.cellSize).to.be.equal(20);
     });
   });
+
+  describe('Non default property values', () => {
+    const MY_BOARD = new BoardOnBoardTest(5, 10, 15);
+
+    it('Modifies default nRows correctly', () => {
+      expectOnBoardTest(MY_BOARD.nRows).to.be.equal(5);
+    });
+  });
 });
