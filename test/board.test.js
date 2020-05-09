@@ -37,5 +37,9 @@ describe('Board Class', () => {
       expectOnBoardTest(MY_BOARD).to.have.property('cellSize');
       expectOnBoardTest(MY_BOARD.cellSize).to.be.a('number');
     });
+
+    it('Default nRows is 5', () => {
+      expectOnBoardTest(MY_BOARD.nRows).to.be.equal(5);
+    });
   });
 });
