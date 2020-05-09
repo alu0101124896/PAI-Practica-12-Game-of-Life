@@ -57,5 +57,9 @@ describe('Board Class', () => {
     it('Modifies default nRows correctly', () => {
       expectOnBoardTest(MY_BOARD.nRows).to.be.equal(5);
     });
+
+    it('Modifies default nColumns correctly', () => {
+      expectOnBoardTest(MY_BOARD.nColumns).to.be.equal(10);
+    });
   });
 });
