@@ -20,9 +20,11 @@ class Board {
   /**
    * @description Constructor that creates an instance of a board.
    *
+   * @param {number} [cellSize=0] - Size of the cells on the board
    * @memberof Board
    */
-  constructor() {
+  constructor(cellSize = 20) {
+    this.cellSize = cellSize;
   }
 }
 
