@@ -1,0 +1,39 @@
+{
+  "name": "practica-12-game-of-life-alu0101124896",
+  "version": "1.0.0",
+  "description": "Practica 12 Game of Life alu0101124896",
+  "scripts": {
+    "start": "node web-server/app.js",
+    "test": "nyc mocha --require @babel/register",
+    "test:watch": "nyc mocha --watch --require @babel/register",
+    "coverage": "nyc --reporter html npm test"
+  },
+  "author": "Sergio Tabares",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "jsdoc": "^3.6.3",
+    "npm-check-updates": "^4.1.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ULL-ESIT-INF-PAI-2019-2020/practica-12-game-of-life-alu0101124896.git"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/node": "^7.8.7",
+    "@babel/preset-env": "^7.9.5",
+    "@babel/register": "^7.9.0",
+    "babel": "^6.23.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.1.0",
+    "babel-plugin-istanbul": "^6.0.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "chai": "^4.2.0",
+    "mocha": "^7.1.1",
+    "nyc": "^15.0.1"
+  }
+}
