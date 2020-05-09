@@ -22,5 +22,10 @@ if (typeof require !== 'undefined') { // Execution in node
 describe('Board Class', () => {
   describe('Default properties', () => {
     const MY_BOARD = new BoardOnBoardTest();
+
+    it('Board has a cellSize', () => {
+      expectOnBoardTest(MY_BOARD).to.have.property('cellSize');
+      expectOnBoardTest(MY_BOARD.cellSize).to.be.a('number');
+    });
   });
 });
