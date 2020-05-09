@@ -32,5 +32,10 @@ describe('Cell Class', () => {
       expectOnCellTest(MY_CELL).to.have.property('yCoord');
       expectOnCellTest(MY_CELL.yCoord).to.be.a('number');
     });
+
+    it('Cell has a alive', () => {
+      expectOnCellTest(MY_CELL).to.have.property('alive');
+      expectOnCellTest(MY_CELL.alive).to.be.a('boolean');
+    });
   });
 });
