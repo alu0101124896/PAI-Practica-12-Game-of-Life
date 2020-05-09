@@ -21,10 +21,12 @@ class Cell {
    * @description Constructor that creates an instance of a cell.
    *
    * @param {number} [xCoord=0] - X coordinate of the cell
+   * @param {number} [yCoord=0] - Y coordinate of the cell
    * @memberof Cell
    */
-  constructor(xCoord = 0) {
+  constructor(xCoord = 0, yCoord = 0) {
     this.xCoord = xCoord;
+    this.yCoord = yCoord;
   }
 }
 
