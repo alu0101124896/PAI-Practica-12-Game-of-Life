@@ -27,5 +27,10 @@ describe('Cell Class', () => {
       expectOnCellTest(MY_CELL).to.have.property('xCoord');
       expectOnCellTest(MY_CELL.xCoord).to.be.a('number');
     });
+
+    it('Cell has a yCoord', () => {
+      expectOnCellTest(MY_CELL).to.have.property('yCoord');
+      expectOnCellTest(MY_CELL.yCoord).to.be.a('number');
+    });
   });
 });
