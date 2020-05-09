@@ -41,5 +41,9 @@ describe('Board Class', () => {
     it('Default nRows is 5', () => {
       expectOnBoardTest(MY_BOARD.nRows).to.be.equal(5);
     });
+
+    it('Default nColumns is 5', () => {
+      expectOnBoardTest(MY_BOARD.nColumns).to.be.equal(5);
+    });
   });
 });
