@@ -28,6 +28,11 @@ describe('Board Class', () => {
       expectOnBoardTest(MY_BOARD.nRows).to.be.a('number');
     });
 
+    it('Board has a nColumns', () => {
+      expectOnBoardTest(MY_BOARD).to.have.property('nColumns');
+      expectOnBoardTest(MY_BOARD.nColumns).to.be.a('number');
+    });
+
     it('Board has a cellSize', () => {
       expectOnBoardTest(MY_BOARD).to.have.property('cellSize');
       expectOnBoardTest(MY_BOARD.cellSize).to.be.a('number');
