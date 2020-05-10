@@ -86,5 +86,11 @@ describe('Cell Class', () => {
       expectOnCellTest(myCell.aliveState).to.be.equal(false);
       expectOnCellTest(myCell.aliveNeighbours).to.be.equal(0);
     });
+
+    it('Update state (birth)', ()=>{
+      myCell.aliveNeighbours = 3;
+      myCell.updateState();
+      expectOnCellTest(myCell.aliveState).to.be.equal(true);
+    });
   });
 });
