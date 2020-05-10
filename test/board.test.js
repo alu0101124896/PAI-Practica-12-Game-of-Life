@@ -84,7 +84,7 @@ describe('Board Class', () => {
       expectOnBoardTest(cellsCounter).to.be.equal(numOfCells);
     });
 
-    it('Reset', ()=> {
+    it('Reset', () => {
       let cellsCounter = 0;
       MY_BOARD.reset();
       MY_BOARD.grid.forEach(row => {
@@ -97,7 +97,7 @@ describe('Board Class', () => {
       expectOnBoardTest(cellsCounter).to.be.equal(0);
     });
 
-    it('Count alive neighbours', ()=> {
+    it('Count alive neighbours', () => {
       MY_BOARD.grid[1][2].aliveState = true;
       MY_BOARD.grid[2][3].aliveState = true;
       MY_BOARD.grid[3][1].aliveState = true;
@@ -113,6 +113,15 @@ describe('Board Class', () => {
       expectOnBoardTest(MY_BOARD.grid[3][1].aliveNeighbours).to.be.equal(1);
       expectOnBoardTest(MY_BOARD.grid[3][2].aliveNeighbours).to.be.equal(3);
       expectOnBoardTest(MY_BOARD.grid[3][3].aliveNeighbours).to.be.equal(2);
+    });
+
+    it('Update state', () => {
+      MY_BOARD.updateState();
+      expectOnBoardTest(MY_BOARD.grid[2][1].aliveState).to.be.equal(true);
+      expectOnBoardTest(MY_BOARD.grid[2][3].aliveState).to.be.equal(true);
+      expectOnBoardTest(MY_BOARD.grid[3][2].aliveState).to.be.equal(true);
+      expectOnBoardTest(MY_BOARD.grid[3][3].aliveState).to.be.equal(true);
+      expectOnBoardTest(MY_BOARD.grid[4][2].aliveState).to.be.equal(true);
     });
   });
 });
