@@ -83,5 +83,18 @@ describe('Board Class', () => {
       });
       expectOnBoardTest(cellsCounter).to.be.equal(numOfCells);
     });
+
+    it('Reset', ()=> {
+      let cellsCounter = 0;
+      MY_BOARD.reset();
+      MY_BOARD.grid.forEach(row => {
+        row.forEach(cell => {
+          if (cell.aliveState) {
+            cellsCounter++;
+          }
+        });
+      });
+      expectOnBoardTest(cellsCounter).to.be.equal(0);
+    });
   });
 });
