@@ -62,7 +62,8 @@ class Board {
    */
   putRandomCells(numOfCells) {
     for (let cellsIterator = 0; cellsIterator < numOfCells; cellsIterator++) {
-      this.grid[Math.floor(Math.random() * this.nRows)][Math.floor(Math.random() * this.nColumns)].aliveState = true;
+      this.grid[Math.floor(Math.random() * this.nRows) + 1]
+      [Math.floor(Math.random() * this.nColumns) + 1].aliveState = true;
     }
   }
 
@@ -80,8 +81,8 @@ class Board {
   }
 
   /**
-   * @description Function that counts the number of aliveState neighbour cells of
-   *  each cell on the board
+   * @description Function that counts the number of aliveState neighbour cells
+   *  of each cell on the board
    *
    * @memberof Board
    */

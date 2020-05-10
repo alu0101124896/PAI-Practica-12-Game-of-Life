@@ -40,7 +40,7 @@ class GameOfLife {
     this.nColumns = Math.floor(this.CANVAS.width / this.cellSize) + 1;
     this.board = new BoardOnGameOfLife(this.nRows, this.nColumns,
       this.cellSize);
-    this.board.draw(this.CONTEXT, this.CANVAS);
+    this.draw();
     this.animateFlag = false;
   }
 
@@ -52,7 +52,7 @@ class GameOfLife {
   iterate() {
     this.board.countAliveNeighbours();
     this.board.updateState();
-    this.board.draw(this.CONTEXT, this.CANVAS);
+    this.draw();
   }
 
   /**
@@ -98,7 +98,7 @@ class GameOfLife {
   start() {
     if (!this.animateFlag) {
       this.board.putRandomCells(document.getElementById("numOfCells").value);
-      this.board.draw(this.CONTEXT, this.CANVAS);
+      this.draw();
       this.play();
     }
   }
@@ -120,6 +120,15 @@ class GameOfLife {
   stop() {
     this.pause();
     this.board.reset();
+    this.draw();
+  }
+
+  /**
+   * @description Function that draws the actual state of the Game of Life
+   *
+   * @memberof GameOfLife
+   */
+  draw() {
     this.board.draw(this.CONTEXT, this.CANVAS);
   }
 }
