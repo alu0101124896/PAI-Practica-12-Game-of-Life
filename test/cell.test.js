@@ -75,4 +75,16 @@ describe('Cell Class', () => {
       expectOnCellTest(MY_CELL.aliveState).to.be.equal(true);
     });
   });
+
+  describe('Cell methods', () => {
+    let myCell = new CellOnCellTest();
+
+    it('Reset', () => {
+      myCell.aliveState = true;
+      myCell.aliveNeighbours = 5;
+      myCell.reset();
+      expectOnCellTest(myCell.aliveState).to.be.equal(false);
+      expectOnCellTest(myCell.aliveNeighbours).to.be.equal(0);
+    });
+  });
 });

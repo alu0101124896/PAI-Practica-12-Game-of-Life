@@ -62,6 +62,7 @@ class Cell {
     }
   }
 
+  /* istanbul ignore next */
   /**
    * @description Function that draws the state of the cell
    *

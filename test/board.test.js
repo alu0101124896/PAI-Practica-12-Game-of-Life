@@ -68,13 +68,13 @@ describe('Board Class', () => {
   });
 
   describe('Board methods', () => {
-    const MY_BOARD = new BoardOnBoardTest(50, 50);
+    let myBoard = new BoardOnBoardTest(50, 50);
 
     it('Put random cells', () => {
       let numOfCells = 10;
       let cellsCounter = 0;
-      MY_BOARD.putRandomCells(numOfCells);
-      MY_BOARD.grid.forEach(row => {
+      myBoard.putRandomCells(numOfCells);
+      myBoard.grid.forEach(row => {
         row.forEach(cell => {
           if (cell.aliveState) {
             cellsCounter++;
@@ -86,8 +86,8 @@ describe('Board Class', () => {
 
     it('Reset', () => {
       let cellsCounter = 0;
-      MY_BOARD.reset();
-      MY_BOARD.grid.forEach(row => {
+      myBoard.reset();
+      myBoard.grid.forEach(row => {
         row.forEach(cell => {
           if (cell.aliveState) {
             cellsCounter++;
@@ -98,30 +98,30 @@ describe('Board Class', () => {
     });
 
     it('Count alive neighbours', () => {
-      MY_BOARD.grid[1][2].aliveState = true;
-      MY_BOARD.grid[2][3].aliveState = true;
-      MY_BOARD.grid[3][1].aliveState = true;
-      MY_BOARD.grid[3][2].aliveState = true;
-      MY_BOARD.grid[3][3].aliveState = true;
-      MY_BOARD.countAliveNeighbours();
-      expectOnBoardTest(MY_BOARD.grid[1][1].aliveNeighbours).to.be.equal(1);
-      expectOnBoardTest(MY_BOARD.grid[1][2].aliveNeighbours).to.be.equal(1);
-      expectOnBoardTest(MY_BOARD.grid[1][3].aliveNeighbours).to.be.equal(2);
-      expectOnBoardTest(MY_BOARD.grid[2][1].aliveNeighbours).to.be.equal(3);
-      expectOnBoardTest(MY_BOARD.grid[2][2].aliveNeighbours).to.be.equal(5);
-      expectOnBoardTest(MY_BOARD.grid[2][3].aliveNeighbours).to.be.equal(3);
-      expectOnBoardTest(MY_BOARD.grid[3][1].aliveNeighbours).to.be.equal(1);
-      expectOnBoardTest(MY_BOARD.grid[3][2].aliveNeighbours).to.be.equal(3);
-      expectOnBoardTest(MY_BOARD.grid[3][3].aliveNeighbours).to.be.equal(2);
+      myBoard.grid[1][2].aliveState = true;
+      myBoard.grid[2][3].aliveState = true;
+      myBoard.grid[3][1].aliveState = true;
+      myBoard.grid[3][2].aliveState = true;
+      myBoard.grid[3][3].aliveState = true;
+      myBoard.countAliveNeighbours();
+      expectOnBoardTest(myBoard.grid[1][1].aliveNeighbours).to.be.equal(1);
+      expectOnBoardTest(myBoard.grid[1][2].aliveNeighbours).to.be.equal(1);
+      expectOnBoardTest(myBoard.grid[1][3].aliveNeighbours).to.be.equal(2);
+      expectOnBoardTest(myBoard.grid[2][1].aliveNeighbours).to.be.equal(3);
+      expectOnBoardTest(myBoard.grid[2][2].aliveNeighbours).to.be.equal(5);
+      expectOnBoardTest(myBoard.grid[2][3].aliveNeighbours).to.be.equal(3);
+      expectOnBoardTest(myBoard.grid[3][1].aliveNeighbours).to.be.equal(1);
+      expectOnBoardTest(myBoard.grid[3][2].aliveNeighbours).to.be.equal(3);
+      expectOnBoardTest(myBoard.grid[3][3].aliveNeighbours).to.be.equal(2);
     });
 
     it('Update state', () => {
-      MY_BOARD.updateState();
-      expectOnBoardTest(MY_BOARD.grid[2][1].aliveState).to.be.equal(true);
-      expectOnBoardTest(MY_BOARD.grid[2][3].aliveState).to.be.equal(true);
-      expectOnBoardTest(MY_BOARD.grid[3][2].aliveState).to.be.equal(true);
-      expectOnBoardTest(MY_BOARD.grid[3][3].aliveState).to.be.equal(true);
-      expectOnBoardTest(MY_BOARD.grid[4][2].aliveState).to.be.equal(true);
+      myBoard.updateState();
+      expectOnBoardTest(myBoard.grid[2][1].aliveState).to.be.equal(true);
+      expectOnBoardTest(myBoard.grid[2][3].aliveState).to.be.equal(true);
+      expectOnBoardTest(myBoard.grid[3][2].aliveState).to.be.equal(true);
+      expectOnBoardTest(myBoard.grid[3][3].aliveState).to.be.equal(true);
+      expectOnBoardTest(myBoard.grid[4][2].aliveState).to.be.equal(true);
     });
   });
 });
