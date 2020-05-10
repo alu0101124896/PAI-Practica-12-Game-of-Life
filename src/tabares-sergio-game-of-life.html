@@ -15,10 +15,6 @@
   <meta charset="utf-8" />
   <title>Tabares Hernández, Sergio</title>
   <link rel="stylesheet" href="./game-of-life.css">
-  <script src="../src/cell.js" defer></script>
-  <script src="../src/board.js" defer></script>
-  <script src="../src/game-of-life.js" defer></script>
-  <script defer> mainBrowser(); </script>
 </head>
 
 <body>
@@ -32,7 +28,27 @@
     </div>
     <div class="main-flex-buttons">
       <div>
-        <button type="button" onclick="poker.dealHands();">Repartir Mano</button>
+        <label for="numOfCells">Número de células: </label>
+        <input type="number" id="numOfCells" name="numOfCells" value="5000" min="0">
+      </div>
+      <br />
+      <div>
+        <label for="speed">Velocidad de animación: </label>
+        <input type="range" id="speed" name="speed" min="1" max="50" value="25" step="1">
+      </div>
+      <br />
+      <div>
+        <button type="button" onclick="gameOfLife.start();">Inicio</button>
+        <button type="button" onclick="gameOfLife.stop();">Fin</button>
+      </div>
+      <br />
+      <div>
+        <button type="button" onclick="gameOfLife.play();">Play</button>
+        <button type="button" onclick="gameOfLife.pause();">Pausa</button>
+      </div>
+      <br />
+      <div>
+        <button type="button" onclick="gameOfLife.iterate();">Paso</button>
       </div>
     </div>
   </section>
@@ -50,6 +66,13 @@
     <p>More info about Game of Life
       <a href="https://en.wikipedia.org/wiki/Conway's_Game_of_Life">here</a> </p>
   </div>
+
+  <script src="../src/cell.js"></script>
+  <script src="../src/board.js"></script>
+  <script src="../src/game-of-life.js"></script>
+  <script>
+    let gameOfLife = new GameOfLife();
+  </script>
 </body>
 
 

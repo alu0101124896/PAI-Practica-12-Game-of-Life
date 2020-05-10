@@ -10,6 +10,9 @@
 
 "use strict";
 
+const DEAD_CELL = 'black';
+const ALIVE_CELL = 'white';
+
 /**
  * @description Class representing a cell for the Game of Life.
  *
@@ -33,6 +36,17 @@ class Cell {
   }
 
   /**
+   * @description Function that resets the state of the cell and the neighbours
+   *  counter
+   *
+   * @memberof Cell
+   */
+  reset() {
+    this.aliveState = false;
+    this.aliveNeighbours = 0;
+  }
+
+  /**
    * @description Function that updates the state of the cell
    *
    * @memberof Cell
@@ -40,12 +54,29 @@ class Cell {
   updateState() {
     if (this.aliveState && (this.aliveNeighbours !== 3) &&
       (this.aliveNeighbours !== 2)) {
-        this.aliveState = false;
+      this.aliveState = false;
     } else if (!this.aliveState && this.aliveNeighbours === 3) {
       this.aliveState = true;
     } else {
       // The state remains the same
     }
+  }
+
+  /**
+   * @description Function that draws the state of the cell
+   *
+   * @param {*} cellSize
+   * @param {*} CONTEXT
+   * @memberof Cell
+   */
+  draw(cellSize, CONTEXT) {
+    if (this.aliveState) {
+      CONTEXT.fillStyle = ALIVE_CELL;
+    } else {
+      CONTEXT.fillStyle = DEAD_CELL;
+    }
+    CONTEXT.fillRect((this.column - 1) * cellSize, (this.row - 1) * cellSize,
+      cellSize, cellSize);
   }
 }
 
