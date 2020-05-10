@@ -16,18 +16,13 @@ const ALIVE_CELL = 'white';
 /**
  * @description Class representing a cell for the Game of Life.
  *
+ * @param {number} [row=0] - Row of the cell on the board
+ * @param {number} [column=0] - Column of the cell on the board
+ * @param {boolean} [aliveState=false] - Alive state of the cell
+ *
  * @class Cell
  */
 class Cell {
-
-  /**
-   * @description Constructor that creates an instance of a cell.
-   *
-   * @param {number} [row=0] - Row of the cell on the board
-   * @param {number} [column=0] - Column of the cell on the board
-   * @param {boolean} [aliveState=false] - Alive state of the cell
-   * @memberof Cell
-   */
   constructor(row = 0, column = 0, aliveState = false) {
     this.row = row;
     this.column = column;
@@ -66,8 +61,8 @@ class Cell {
   /**
    * @description Function that draws the state of the cell
    *
-   * @param {*} cellSize
-   * @param {*} CONTEXT
+   * @param {number} cellSize - Number of pixels of each cell
+   * @param {*} CONTEXT - Canvas context
    * @memberof Cell
    */
   draw(cellSize, CONTEXT) {

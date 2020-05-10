@@ -24,12 +24,6 @@ if (typeof require !== 'undefined') { // Execution in node
  * @class GameOfLife
  */
 class GameOfLife {
-
-  /**
-   * @description Constructor that creates an instance of a Game of Life.
-   *
-   * @memberof GameOfLife
-   */
   constructor() {
     this.CANVAS = document.getElementById("canvas");
     this.CONTEXT = this.CANVAS.getContext("2d");

@@ -26,18 +26,13 @@ const GRID_LINE_WIDTH = 1;
 /**
  * @description Class representing a board for the Game of Life.
  *
+ * @param {number} [nRows=5] - Number of rows of the board
+ * @param {number} [nColumns=5] - Number of columns of the board
+ * @param {number} [cellSize=20] - Size of the cells of the board
+ *
  * @class Board
  */
 class Board {
-
-  /**
-   * @description Constructor that creates an instance of a board.
-   *
-   * @param {number} [nRows=5] - Number of rows of the board
-   * @param {number} [nColumns=5] - Number of columns of the board
-   * @param {number} [cellSize=20] - Size of the cells of the board
-   * @memberof Board
-   */
   constructor(nRows = 5, nColumns = 5, cellSize = 20) {
     this.nRows = nRows;
     this.nColumns = nColumns;
@@ -137,8 +132,8 @@ class Board {
   /**
    * @description Function that draws the board at the given canvas
    *
-   * @param {*} CONTEXT
-   * @param {*} CANVAS
+   * @param {*} CONTEXT - Canvas context
+   * @param {*} CANVAS - Canvas
    * @memberof Board
    */
   draw(CONTEXT, CANVAS) {
