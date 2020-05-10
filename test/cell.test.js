@@ -87,10 +87,37 @@ describe('Cell Class', () => {
       expectOnCellTest(myCell.aliveNeighbours).to.be.equal(0);
     });
 
-    it('Update state (birth)', ()=>{
+    it('Update state (birth with three neighbours)', () => {
       myCell.aliveNeighbours = 3;
       myCell.updateState();
       expectOnCellTest(myCell.aliveState).to.be.equal(true);
+    });
+
+    it('Update state (death by overcrowding)', () => {
+      myCell.aliveNeighbours = 6;
+      myCell.updateState();
+      expectOnCellTest(myCell.aliveState).to.be.equal(false);
+    });
+
+    it('Update state (death by isolation)', () => {
+      myCell.aliveState = true;
+      myCell.aliveNeighbours = 1;
+      myCell.updateState();
+      expectOnCellTest(myCell.aliveState).to.be.equal(false);
+    });
+
+    it('Update state (remain alive state)', () => {
+      myCell.aliveState = true;
+      myCell.aliveNeighbours = 2;
+      myCell.updateState();
+      expectOnCellTest(myCell.aliveState).to.be.equal(true);
+    });
+
+    it('Update state (remain death state)', () => {
+      myCell.aliveState = false;
+      myCell.aliveNeighbours = 2;
+      myCell.updateState();
+      expectOnCellTest(myCell.aliveState).to.be.equal(false);
     });
   });
 });
