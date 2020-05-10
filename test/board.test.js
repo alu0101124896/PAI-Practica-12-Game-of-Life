@@ -66,4 +66,22 @@ describe('Board Class', () => {
       expectOnBoardTest(MY_BOARD.cellSize).to.be.equal(15);
     });
   });
+
+  describe('Board methods', () => {
+    const MY_BOARD = new BoardOnBoardTest(50, 50);
+
+    it('Put random cells', () => {
+      let numOfCells = 10;
+      let cellsCounter = 0;
+      MY_BOARD.putRandomCells(numOfCells);
+      MY_BOARD.grid.forEach(row => {
+        row.forEach(cell => {
+          if (cell.aliveState) {
+            cellsCounter++;
+          }
+        });
+      });
+      expectOnBoardTest(cellsCounter).to.be.equal(numOfCells);
+    });
+  });
 });

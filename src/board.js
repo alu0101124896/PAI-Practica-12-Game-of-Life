@@ -11,9 +11,12 @@
 "use strict";
 
 let CellOnBoard;
+/* istanbul ignore next */
 if (typeof require !== 'undefined') { // Execution in node
   CellOnBoard = require('../src/cell.js').Cell;
-} else { // Execution in browser
+}
+/* istanbul ignore next */
+else { // Execution in browser
   CellOnBoard = Cell;
 }
 
@@ -51,19 +54,6 @@ class Board {
   }
 
   /**
-   * @description Function that resets every cell on the grid
-   *
-   * @memberof Board
-   */
-  reset() {
-    this.grid.forEach(row => {
-      row.forEach(cell => {
-        cell.reset();
-      });
-    });
-  }
-
-  /**
    * @description Function that puts the given number of cells at random
    *  positions
    *
@@ -74,6 +64,19 @@ class Board {
     for (let cellsIterator = 0; cellsIterator < numOfCells; cellsIterator++) {
       this.grid[Math.floor(Math.random() * this.nRows)][Math.floor(Math.random() * this.nColumns)].aliveState = true;
     }
+  }
+
+  /**
+   * @description Function that resets every cell on the grid
+   *
+   * @memberof Board
+   */
+  reset() {
+    this.grid.forEach(row => {
+      row.forEach(cell => {
+        cell.reset();
+      });
+    });
   }
 
   /**
