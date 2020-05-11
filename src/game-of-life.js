@@ -36,6 +36,55 @@ class GameOfLife {
       this.cellSize);
     this.draw();
     this.animateFlag = false;
+    this.mouseDown = false;
+    this.CANVAS.addEventListener("mousedown", this.mouseIsDown.bind(this));
+    this.CANVAS.addEventListener("mousedown", this.swapCellState.bind(this));
+    this.CANVAS.addEventListener("mousemove", this.swapCellState.bind(this));
+    this.CANVAS.addEventListener("mouseup", this.mouseIsUp.bind(this));
+  }
+
+  /**
+   * @description Function that notifies that the mouse is down
+   *
+   * @memberof GameOfLife
+   */
+  mouseIsDown() {
+    this.mouseDown = true;
+  }
+
+  /**
+   * @description Function that notifies that the mouse is up and resets all the
+   *  flags of the cells that has been swapped
+   *
+   * @memberof GameOfLife
+   */
+  mouseIsUp() {
+    this.mouseDown = false;
+    this.board.grid.forEach(row => {
+      row.forEach(cell => {
+        cell.hasBeenSwapped = false;
+      });
+    });
+  }
+
+  /**
+   * @description Function that swaps the state of all the cells where the mouse
+   *  has been when the mouse is down
+   *
+   * @param {*} event - Event callback
+   * @memberof GameOfLife
+   */
+  swapCellState(event) {
+    if (this.mouseDown) {
+      let row = Math.floor(event.offsetY / this.cellSize) + 1;
+      let column = Math.floor(event.offsetX / this.cellSize) + 1;
+      if (!this.board.grid[row][column].hasBeenSwapped) {
+        this.board.grid[row][column].aliveState =
+          !this.board.grid[row][column].aliveState;
+        this.board.grid[row][column].hasBeenSwapped = true;
+        this.draw();
+      }
+    }
   }
 
   /**
@@ -53,6 +102,10 @@ class GameOfLife {
    * @description Function that stops the execution the given amount of time
    *
    * @param {number} msToWait - Number of miniseconds to stop the execution
+   * @returns {Promise} Returns a promise that makes the execution wait the
+   *  given amount of time
+   * @memberof GameOfLife
+   *
    */
   sleep(msToWait) {
     return new Promise(resolve => setTimeout(resolve, msToWait));
@@ -118,6 +171,135 @@ class GameOfLife {
   }
 
   /**
+   * @description Function that adds a glider on the grid
+   *
+   * @memberof GameOfLife
+   */
+  addGlider() {
+    const X_DISP = 0;
+    const Y_DISP = 0;
+
+    this.board.grid[1 + X_DISP][2 + Y_DISP].aliveState = true;
+    this.board.grid[2 + X_DISP][3 + Y_DISP].aliveState = true;
+    this.board.grid[3 + X_DISP][1 + Y_DISP].aliveState = true;
+    this.board.grid[3 + X_DISP][2 + Y_DISP].aliveState = true;
+    this.board.grid[3 + X_DISP][3 + Y_DISP].aliveState = true;
+
+    this.draw();
+  }
+
+  /**
+   * @description Function that adds a glider gun on the grid
+   *
+   * @memberof GameOfLife
+   */
+  addGliderGun() {
+    const X_DISP = 20;
+    const Y_DISP = 20;
+
+    this.board.grid[5 + X_DISP][1 + Y_DISP].aliveState = true;
+    this.board.grid[5 + X_DISP][2 + Y_DISP].aliveState = true;
+    this.board.grid[6 + X_DISP][1 + Y_DISP].aliveState = true;
+    this.board.grid[6 + X_DISP][2 + Y_DISP].aliveState = true;
+
+    this.board.grid[3 + X_DISP][13 + Y_DISP].aliveState = true;
+    this.board.grid[3 + X_DISP][14 + Y_DISP].aliveState = true;
+    this.board.grid[4 + X_DISP][12 + Y_DISP].aliveState = true;
+    this.board.grid[4 + X_DISP][16 + Y_DISP].aliveState = true;
+    this.board.grid[5 + X_DISP][11 + Y_DISP].aliveState = true;
+    this.board.grid[5 + X_DISP][17 + Y_DISP].aliveState = true;
+    this.board.grid[6 + X_DISP][11 + Y_DISP].aliveState = true;
+    this.board.grid[6 + X_DISP][15 + Y_DISP].aliveState = true;
+    this.board.grid[6 + X_DISP][17 + Y_DISP].aliveState = true;
+    this.board.grid[6 + X_DISP][18 + Y_DISP].aliveState = true;
+    this.board.grid[7 + X_DISP][11 + Y_DISP].aliveState = true;
+    this.board.grid[7 + X_DISP][17 + Y_DISP].aliveState = true;
+    this.board.grid[8 + X_DISP][12 + Y_DISP].aliveState = true;
+    this.board.grid[8 + X_DISP][16 + Y_DISP].aliveState = true;
+    this.board.grid[9 + X_DISP][13 + Y_DISP].aliveState = true;
+    this.board.grid[9 + X_DISP][14 + Y_DISP].aliveState = true;
+
+    this.board.grid[1 + X_DISP][25 + Y_DISP].aliveState = true;
+    this.board.grid[2 + X_DISP][23 + Y_DISP].aliveState = true;
+    this.board.grid[2 + X_DISP][25 + Y_DISP].aliveState = true;
+    this.board.grid[3 + X_DISP][21 + Y_DISP].aliveState = true;
+    this.board.grid[3 + X_DISP][22 + Y_DISP].aliveState = true;
+    this.board.grid[4 + X_DISP][21 + Y_DISP].aliveState = true;
+    this.board.grid[4 + X_DISP][22 + Y_DISP].aliveState = true;
+    this.board.grid[5 + X_DISP][21 + Y_DISP].aliveState = true;
+    this.board.grid[5 + X_DISP][22 + Y_DISP].aliveState = true;
+    this.board.grid[6 + X_DISP][23 + Y_DISP].aliveState = true;
+    this.board.grid[6 + X_DISP][25 + Y_DISP].aliveState = true;
+    this.board.grid[7 + X_DISP][25 + Y_DISP].aliveState = true;
+
+    this.board.grid[3 + X_DISP][35 + Y_DISP].aliveState = true;
+    this.board.grid[3 + X_DISP][36 + Y_DISP].aliveState = true;
+    this.board.grid[4 + X_DISP][35 + Y_DISP].aliveState = true;
+    this.board.grid[4 + X_DISP][36 + Y_DISP].aliveState = true;
+
+    this.draw();
+  }
+
+  /**
+   * @description Function that adds an u shape bomb on the grid
+   *
+   * @memberof GameOfLife
+   */
+  addUBomb() {
+    const X_DISP = 40;
+    const Y_DISP = 60;
+
+    this.board.grid[1 + X_DISP][1 + Y_DISP].aliveState = true;
+    this.board.grid[1 + X_DISP][3 + Y_DISP].aliveState = true;
+    this.board.grid[2 + X_DISP][1 + Y_DISP].aliveState = true;
+    this.board.grid[2 + X_DISP][3 + Y_DISP].aliveState = true;
+    this.board.grid[3 + X_DISP][1 + Y_DISP].aliveState = true;
+    this.board.grid[3 + X_DISP][2 + Y_DISP].aliveState = true;
+    this.board.grid[3 + X_DISP][3 + Y_DISP].aliveState = true;
+
+    this.draw();
+  }
+
+  /**
+   * @description Function that adds a snake shape bomb on the grid
+   *
+   * @memberof GameOfLife
+   */
+  addSnakeBomb() {
+    const X_DISP = 30;
+    const Y_DISP = 40;
+
+    this.board.grid[6 + X_DISP][2 + Y_DISP].aliveState = true;
+    this.board.grid[5 + X_DISP][4 + Y_DISP].aliveState = true;
+    this.board.grid[5 + X_DISP][2 + Y_DISP].aliveState = true;
+    this.board.grid[5 + X_DISP][1 + Y_DISP].aliveState = true;
+    this.board.grid[4 + X_DISP][4 + Y_DISP].aliveState = true;
+    this.board.grid[4 + X_DISP][2 + Y_DISP].aliveState = true;
+    this.board.grid[3 + X_DISP][4 + Y_DISP].aliveState = true;
+    this.board.grid[2 + X_DISP][6 + Y_DISP].aliveState = true;
+    this.board.grid[1 + X_DISP][8 + Y_DISP].aliveState = true;
+    this.board.grid[1 + X_DISP][6 + Y_DISP].aliveState = true;
+
+    this.draw();
+  }
+
+  /**
+   * @description Function that adds a line that creates two serpinski triangles
+   *
+   * @memberof GameOfLife
+   */
+  addSerpinskiTriangle() {
+    const X_DISP = 225;
+    const Y_DISP = 300;
+
+    for (let rowIterator = 0; rowIterator < 512; rowIterator++) {
+      this.board.grid[X_DISP][rowIterator + Y_DISP].aliveState = true;
+    }
+
+    this.draw();
+  }
+
+  /**
    * @description Function that draws the actual state of the Game of Life
    *
    * @memberof GameOfLife
@@ -126,6 +308,8 @@ class GameOfLife {
     this.board.draw(this.CONTEXT, this.CANVAS);
   }
 }
+
+let gameOfLife = new GameOfLife();
 
 /* istanbul ignore next */
 if (typeof exports !== 'undefined') { // Execution in node

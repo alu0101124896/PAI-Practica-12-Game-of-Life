@@ -28,6 +28,7 @@ class Cell {
     this.column = column;
     this.aliveState = aliveState;
     this.aliveNeighbours = 0;
+    this.hasBeenSwapped = false;
   }
 
   /**

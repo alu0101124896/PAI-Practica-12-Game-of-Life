@@ -144,27 +144,29 @@ class Board {
           draw(this.cellSize, CONTEXT);
       }
     }
-    let widthIterator = this.cellSize;
-    while (widthIterator < CANVAS.width) {
-      CONTEXT.beginPath();
-      CONTEXT.strokeStyle = GREY_LINE;
-      CONTEXT.lineWidth = GRID_LINE_WIDTH;
-      CONTEXT.moveTo(widthIterator + 0.5, 0);
-      CONTEXT.lineTo(widthIterator + 0.5, CANVAS.height);
-      CONTEXT.stroke();
+    if (document.getElementById("showGrid").checked) {
+      let widthIterator = this.cellSize;
+      while (widthIterator < CANVAS.width) {
+        CONTEXT.beginPath();
+        CONTEXT.strokeStyle = GREY_LINE;
+        CONTEXT.lineWidth = GRID_LINE_WIDTH;
+        CONTEXT.moveTo(widthIterator - 0.5, 0);
+        CONTEXT.lineTo(widthIterator - 0.5, CANVAS.height);
+        CONTEXT.stroke();
 
-      widthIterator += this.cellSize;
-    }
-    let heightIterator = this.cellSize;
-    while (heightIterator < CANVAS.height) {
-      CONTEXT.beginPath();
-      CONTEXT.strokeStyle = GREY_LINE;
-      CONTEXT.lineWidth = GRID_LINE_WIDTH;
-      CONTEXT.moveTo(0, heightIterator + 0.5);
-      CONTEXT.lineTo(CANVAS.width, heightIterator + 0.5);
-      CONTEXT.stroke();
+        widthIterator += this.cellSize;
+      }
+      let heightIterator = this.cellSize;
+      while (heightIterator < CANVAS.height) {
+        CONTEXT.beginPath();
+        CONTEXT.strokeStyle = GREY_LINE;
+        CONTEXT.lineWidth = GRID_LINE_WIDTH;
+        CONTEXT.moveTo(0, heightIterator - 0.5);
+        CONTEXT.lineTo(CANVAS.width, heightIterator - 0.5);
+        CONTEXT.stroke();
 
-      heightIterator += this.cellSize;
+        heightIterator += this.cellSize;
+      }
     }
   }
 }

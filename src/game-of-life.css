@@ -16,6 +16,7 @@ body {
   background-color: #e2f3d6;
   overflow: auto;
   height: inherit;
+  margin: 0;
 }
 
 h1 {
@@ -35,12 +36,6 @@ canvas {
 
 a {
   color: #529b1e;
-}
-
-p {
-  display: block;
-  padding-left: 25%;
-  padding-right: 25%;
 }
 
 #main-flex-container {
@@ -63,4 +58,18 @@ p {
   border-radius: 2%;
   margin: 2%;
   padding: 2%;
+}
+
+#info {
+  display: block;
+  padding-left: 25%;
+  padding-right: 25%;
+}
+
+footer {
+  background-color: #164400;
+  color: #d6ff76;
+  font-size: 150%;
+  padding: 0.5%;
+  margin: 0;
 }

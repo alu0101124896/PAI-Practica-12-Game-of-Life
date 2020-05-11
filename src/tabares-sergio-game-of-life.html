@@ -15,6 +15,10 @@
   <meta charset="utf-8" />
   <title>Tabares Hernández, Sergio</title>
   <link rel="stylesheet" href="./game-of-life.css">
+
+  <script src="../src/cell.js" defer></script>
+  <script src="../src/board.js" defer></script>
+  <script src="../src/game-of-life.js" defer></script>
 </head>
 
 <body>
@@ -29,12 +33,17 @@
     <div class="main-flex-buttons">
       <div>
         <label for="numOfCells">Número de células: </label>
-        <input type="number" id="numOfCells" name="numOfCells" value="5000" min="0">
+        <input type="number" id="numOfCells" name="numOfCells" value="1000" min="0">
       </div>
       <br />
       <div>
         <label for="speed">Velocidad de animación: </label>
-        <input type="range" id="speed" name="speed" min="1" max="40" value="10" step="1">
+        <input type="range" id="speed" name="speed" min="1" max="25" value="1" step="1">
+      </div>
+      <br />
+      <div>
+        <label for="showGrid">Mostrar cuadricula: </label>
+        <input type="checkbox" id="showGrid" name="showGrid" checked>
       </div>
       <br />
       <div>
@@ -50,29 +59,47 @@
       <div>
         <button type="button" onclick="gameOfLife.iterate();">Paso</button>
       </div>
+      <br />
+      <p>Estructuras preestablecidas:</p>
+      <div>
+        <button type="button" onclick="gameOfLife.addGlider();">Glider</button>
+        <button type="button" onclick="gameOfLife.addGliderGun();">Glider Gun</button>
+      </div>
+      <br />
+      <div>
+        <button type="button" onclick="gameOfLife.addUBomb();">Bomba U</button>
+        <button type="button" onclick="gameOfLife.addSnakeBomb();">Bomba serpiente</button>
+      </div>
+      <!-- <br />
+      <div>
+        <button type="button" onclick="gameOfLife.addSerpinskiTriangle();">Triangulo de Serpinski</button>
+      </div> -->
     </div>
   </section>
 
-  <h2>⇓ ⇓ ⇓ Info ⇓ ⇓ ⇓</h2>
-  <div>
-    <p>The Game of Life, also known simply as Life, is a cellular automaton
-      devised by the British mathematician John Horton Conway in 1970. It is a
-      zero-player game, meaning that its evolution is determined by its initial
-      state, requiring no further input. One interacts with the Game of Life by
-      creating an initial configuration and observing how it evolves. It is
-      Turing complete and can simulate a universal constructor or any other
-      Turing machine.
-    </p>
-    <p>More info about Game of Life
-      <a href="https://en.wikipedia.org/wiki/Conway's_Game_of_Life">here</a> </p>
-  </div>
+  <section id="info">
+    <h2>⇓ ⇓ ⇓ Info ⇓ ⇓ ⇓</h2>
+    <div>
+      <p>The Game of Life, also known simply as Life, is a cellular automaton
+        devised by the British mathematician John Horton Conway in 1970. It is a
+        zero-player game, meaning that its evolution is determined by its initial
+        state, requiring no further input. One interacts with the Game of Life by
+        creating an initial configuration and observing how it evolves. It is
+        Turing complete and can simulate a universal constructor or any other
+        Turing machine.
+      </p>
+      <p>More info about Game of Life
+        <a href="https://en.wikipedia.org/wiki/Conway's_Game_of_Life">here</a> </p>
+    </div>
+  </section>
 
-  <script src="../src/cell.js"></script>
-  <script src="../src/board.js"></script>
-  <script src="../src/game-of-life.js"></script>
-  <script>
-    let gameOfLife = new GameOfLife();
-  </script>
+  <footer>
+    <p>
+      Sergio Tabares Hernández - alu0101124896@ull.edu.es - Spring 2020 -
+      University of La Laguna - Computer Science - Interactive Aplication
+      Programing
+    </p>
+  </footer>
 </body>
 
 
