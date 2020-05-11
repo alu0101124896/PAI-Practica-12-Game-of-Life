@@ -4,8 +4,9 @@
  * @since Spring 2020
  * @summary University of La Laguna
  * @summary Computer Science - Interactive Aplication Programing
- * @description This program implements a cell class for the Game of Life. More
- *  info about it here: "https://en.wikipedia.org/wiki/Conway's_Game_of_Life"
+ * @description This program implements a cell class for the Conway's Game of
+ *  Life. More info about it here:
+ *  "https://en.wikipedia.org/wiki/Conway's_Game_of_Life"
  */
 
 "use strict";
@@ -14,7 +15,7 @@ const DEAD_CELL = 'black';
 const ALIVE_CELL = 'white';
 
 /**
- * @description Class representing a cell for the Game of Life.
+ * @description Class representing a cell for the Conway's Game of Life.
  *
  * @param {number} [row=0] - Row of the cell on the board
  * @param {number} [column=0] - Column of the cell on the board

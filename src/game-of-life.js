@@ -4,8 +4,8 @@
  * @since Spring 2020
  * @summary University of La Laguna
  * @summary Computer Science - Interactive Aplication Programing
- * @description This program implements a Game of Life class for the Game of
- *  Life. More info about it here:
+ * @description This program implements a Game of Life class for the Conway's
+ *  Game of Life. More info about it here:
  *  "https://en.wikipedia.org/wiki/Conway's_Game_of_Life"
  */
 
@@ -19,7 +19,8 @@ if (typeof require !== 'undefined') { // Execution in node
 }
 
 /**
- * @description Class representing the Game of Life.
+ * @description Class that handles the functionalities of the Conway's Game of
+ *  Life.
  *
  * @class GameOfLife
  */
@@ -120,7 +121,8 @@ class GameOfLife {
   async animate() {
     while (this.animateFlag) {
       this.iterate();
-      await this.sleep(100 / document.getElementById("speed").value);
+      await this.sleep(document.getElementById("speed").max -
+        document.getElementById("speed").value);
     }
   }
 

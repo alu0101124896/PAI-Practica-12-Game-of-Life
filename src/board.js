@@ -4,8 +4,9 @@
  * @since Spring 2020
  * @summary University of La Laguna
  * @summary Computer Science - Interactive Aplication Programing
- * @description This program implements a board class for the Game of Life. More
- *  info about it here: "https://en.wikipedia.org/wiki/Conway's_Game_of_Life"
+ * @description This program implements a board class for the Conway's Game of
+ *  Life. More info about it here:
+ *  "https://en.wikipedia.org/wiki/Conway's_Game_of_Life"
  */
 
 "use strict";
@@ -24,7 +25,7 @@ const GREY_LINE = '#202020';
 const GRID_LINE_WIDTH = 1;
 
 /**
- * @description Class representing a board for the Game of Life.
+ * @description Class representing a board for the Conway's Game of Life.
  *
  * @param {number} [nRows=5] - Number of rows of the board
  * @param {number} [nColumns=5] - Number of columns of the board
@@ -112,6 +113,225 @@ class Board {
         }
       }
     }
+
+    if (document.getElementById("toroidalMap").checked) {
+      this.grid[0][0].aliveNeighbours = 0;
+      if (this.grid[this.nRows + 1][this.nColumns + 1].aliveState) {
+        this.grid[0][0].aliveNeighbours++;
+      }
+      if (this.grid[this.nRows + 1][0].aliveState) {
+        this.grid[0][0].aliveNeighbours++;
+      }
+      if (this.grid[this.nRows + 1][1].aliveState) {
+        this.grid[0][0].aliveNeighbours++;
+      }
+      if (this.grid[0][this.nColumns + 1].aliveState) {
+        this.grid[0][0].aliveNeighbours++;
+      }
+      if (this.grid[0][1].aliveState) {
+        this.grid[0][0].aliveNeighbours++;
+      }
+      if (this.grid[1][this.nColumns + 1].aliveState) {
+        this.grid[0][0].aliveNeighbours++;
+      }
+      if (this.grid[1][0].aliveState) {
+        this.grid[0][0].aliveNeighbours++;
+      }
+      if (this.grid[1][1].aliveState) {
+        this.grid[0][0].aliveNeighbours++;
+      }
+
+      this.grid[0][this.nColumns + 1].aliveNeighbours = 0;
+      if (this.grid[this.nRows + 1][this.nColumns].aliveState) {
+        this.grid[0][this.nColumns + 1].aliveNeighbours++;
+      }
+      if (this.grid[this.nRows + 1][this.nColumns + 1].aliveState) {
+        this.grid[0][this.nColumns + 1].aliveNeighbours++;
+      }
+      if (this.grid[this.nRows + 1][0].aliveState) {
+        this.grid[0][this.nColumns + 1].aliveNeighbours++;
+      }
+      if (this.grid[0][this.nColumns].aliveState) {
+        this.grid[0][this.nColumns + 1].aliveNeighbours++;
+      }
+      if (this.grid[0][0].aliveState) {
+        this.grid[0][this.nColumns + 1].aliveNeighbours++;
+      }
+      if (this.grid[1][this.nColumns].aliveState) {
+        this.grid[0][this.nColumns + 1].aliveNeighbours++;
+      }
+      if (this.grid[1][this.nColumns + 1].aliveState) {
+        this.grid[0][this.nColumns + 1].aliveNeighbours++;
+      }
+      if (this.grid[1][0].aliveState) {
+        this.grid[0][this.nColumns + 1].aliveNeighbours++;
+      }
+
+      this.grid[this.nRows + 1][0].aliveNeighbours = 0;
+      if (this.grid[this.nRows][this.nColumns + 1].aliveState) {
+        this.grid[this.nRows + 1][0].aliveNeighbours++;
+      }
+      if (this.grid[this.nRows][0].aliveState) {
+        this.grid[this.nRows + 1][0].aliveNeighbours++;
+      }
+      if (this.grid[this.nRows][1].aliveState) {
+        this.grid[this.nRows + 1][0].aliveNeighbours++;
+      }
+      if (this.grid[this.nRows + 1][this.nColumns + 1].aliveState) {
+        this.grid[this.nRows + 1][0].aliveNeighbours++;
+      }
+      if (this.grid[this.nRows + 1][1].aliveState) {
+        this.grid[this.nRows + 1][0].aliveNeighbours++;
+      }
+      if (this.grid[0][this.nColumns + 1].aliveState) {
+        this.grid[this.nRows + 1][0].aliveNeighbours++;
+      }
+      if (this.grid[0][0].aliveState) {
+        this.grid[this.nRows + 1][0].aliveNeighbours++;
+      }
+      if (this.grid[0][1].aliveState) {
+        this.grid[this.nRows + 1][0].aliveNeighbours++;
+      }
+
+      this.grid[this.nRows + 1][this.nColumns + 1].aliveNeighbours = 0;
+      if (this.grid[this.nRows][this.nColumns].aliveState) {
+        this.grid[this.nRows + 1][this.nColumns + 1].aliveNeighbours++;
+      }
+      if (this.grid[this.nRows][this.nColumns + 1].aliveState) {
+        this.grid[this.nRows + 1][this.nColumns + 1].aliveNeighbours++;
+      }
+      if (this.grid[this.nRows][0].aliveState) {
+        this.grid[this.nRows + 1][this.nColumns + 1].aliveNeighbours++;
+      }
+      if (this.grid[this.nRows + 1][this.nColumns].aliveState) {
+        this.grid[this.nRows + 1][this.nColumns + 1].aliveNeighbours++;
+      }
+      if (this.grid[this.nRows + 1][0].aliveState) {
+        this.grid[this.nRows + 1][this.nColumns + 1].aliveNeighbours++;
+      }
+      if (this.grid[0][this.nColumns].aliveState) {
+        this.grid[this.nRows + 1][this.nColumns + 1].aliveNeighbours++;
+      }
+      if (this.grid[0][this.nColumns + 1].aliveState) {
+        this.grid[this.nRows + 1][this.nColumns + 1].aliveNeighbours++;
+      }
+      if (this.grid[0][0].aliveState) {
+        this.grid[this.nRows + 1][this.nColumns + 1].aliveNeighbours++;
+      }
+
+      for (let rowsIterator = 1; rowsIterator <= this.nRows;
+        rowsIterator++) {
+        let columnsIterator = 0;
+        this.grid[rowsIterator][columnsIterator].aliveNeighbours = 0;
+        if (this.grid[rowsIterator - 1][this.nColumns + 1].aliveState) {
+          this.grid[rowsIterator][columnsIterator].aliveNeighbours++;
+        }
+        if (this.grid[rowsIterator - 1][columnsIterator].aliveState) {
+          this.grid[rowsIterator][columnsIterator].aliveNeighbours++;
+        }
+        if (this.grid[rowsIterator - 1][columnsIterator + 1].aliveState) {
+          this.grid[rowsIterator][columnsIterator].aliveNeighbours++;
+        }
+        if (this.grid[rowsIterator][this.nColumns + 1].aliveState) {
+          this.grid[rowsIterator][columnsIterator].aliveNeighbours++;
+        }
+        if (this.grid[rowsIterator][columnsIterator + 1].aliveState) {
+          this.grid[rowsIterator][columnsIterator].aliveNeighbours++;
+        }
+        if (this.grid[rowsIterator + 1][this.nColumns + 1].aliveState) {
+          this.grid[rowsIterator][columnsIterator].aliveNeighbours++;
+        }
+        if (this.grid[rowsIterator + 1][columnsIterator].aliveState) {
+          this.grid[rowsIterator][columnsIterator].aliveNeighbours++;
+        }
+        if (this.grid[rowsIterator + 1][columnsIterator + 1].aliveState) {
+          this.grid[rowsIterator][columnsIterator].aliveNeighbours++;
+        }
+
+        columnsIterator = this.nColumns + 1;
+        this.grid[rowsIterator][columnsIterator].aliveNeighbours = 0;
+        if (this.grid[rowsIterator - 1][columnsIterator - 1].aliveState) {
+          this.grid[rowsIterator][columnsIterator].aliveNeighbours++;
+        }
+        if (this.grid[rowsIterator - 1][columnsIterator].aliveState) {
+          this.grid[rowsIterator][columnsIterator].aliveNeighbours++;
+        }
+        if (this.grid[rowsIterator - 1][0].aliveState) {
+          this.grid[rowsIterator][columnsIterator].aliveNeighbours++;
+        }
+        if (this.grid[rowsIterator][columnsIterator - 1].aliveState) {
+          this.grid[rowsIterator][columnsIterator].aliveNeighbours++;
+        }
+        if (this.grid[rowsIterator][0].aliveState) {
+          this.grid[rowsIterator][columnsIterator].aliveNeighbours++;
+        }
+        if (this.grid[rowsIterator + 1][columnsIterator - 1].aliveState) {
+          this.grid[rowsIterator][columnsIterator].aliveNeighbours++;
+        }
+        if (this.grid[rowsIterator + 1][columnsIterator].aliveState) {
+          this.grid[rowsIterator][columnsIterator].aliveNeighbours++;
+        }
+        if (this.grid[rowsIterator + 1][0].aliveState) {
+          this.grid[rowsIterator][columnsIterator].aliveNeighbours++;
+        }
+      }
+      for (let columnsIterator = 1; columnsIterator <= this.nColumns;
+        columnsIterator++) {
+        let rowsIterator = 0;
+        this.grid[rowsIterator][columnsIterator].aliveNeighbours = 0;
+        if (this.grid[this.nRows + 1][columnsIterator - 1].aliveState) {
+          this.grid[rowsIterator][columnsIterator].aliveNeighbours++;
+        }
+        if (this.grid[this.nRows + 1][columnsIterator].aliveState) {
+          this.grid[rowsIterator][columnsIterator].aliveNeighbours++;
+        }
+        if (this.grid[this.nRows + 1][columnsIterator + 1].aliveState) {
+          this.grid[rowsIterator][columnsIterator].aliveNeighbours++;
+        }
+        if (this.grid[rowsIterator][columnsIterator - 1].aliveState) {
+          this.grid[rowsIterator][columnsIterator].aliveNeighbours++;
+        }
+        if (this.grid[rowsIterator][columnsIterator + 1].aliveState) {
+          this.grid[rowsIterator][columnsIterator].aliveNeighbours++;
+        }
+        if (this.grid[rowsIterator + 1][columnsIterator - 1].aliveState) {
+          this.grid[rowsIterator][columnsIterator].aliveNeighbours++;
+        }
+        if (this.grid[rowsIterator + 1][columnsIterator].aliveState) {
+          this.grid[rowsIterator][columnsIterator].aliveNeighbours++;
+        }
+        if (this.grid[rowsIterator + 1][columnsIterator + 1].aliveState) {
+          this.grid[rowsIterator][columnsIterator].aliveNeighbours++;
+        }
+
+        rowsIterator = this.nRows + 1;
+        this.grid[rowsIterator][columnsIterator].aliveNeighbours = 0;
+        if (this.grid[rowsIterator - 1][columnsIterator - 1].aliveState) {
+          this.grid[rowsIterator][columnsIterator].aliveNeighbours++;
+        }
+        if (this.grid[rowsIterator - 1][columnsIterator].aliveState) {
+          this.grid[rowsIterator][columnsIterator].aliveNeighbours++;
+        }
+        if (this.grid[rowsIterator - 1][columnsIterator + 1].aliveState) {
+          this.grid[rowsIterator][columnsIterator].aliveNeighbours++;
+        }
+        if (this.grid[rowsIterator][columnsIterator - 1].aliveState) {
+          this.grid[rowsIterator][columnsIterator].aliveNeighbours++;
+        }
+        if (this.grid[rowsIterator][columnsIterator + 1].aliveState) {
+          this.grid[rowsIterator][columnsIterator].aliveNeighbours++;
+        }
+        if (this.grid[0][columnsIterator - 1].aliveState) {
+          this.grid[rowsIterator][columnsIterator].aliveNeighbours++;
+        }
+        if (this.grid[0][columnsIterator].aliveState) {
+          this.grid[rowsIterator][columnsIterator].aliveNeighbours++;
+        }
+        if (this.grid[0][columnsIterator + 1].aliveState) {
+          this.grid[rowsIterator][columnsIterator].aliveNeighbours++;
+        }
+      }
+    }
   }
 
   /**
@@ -120,10 +340,20 @@ class Board {
    * @memberof Board
    */
   updateState() {
-    for (let rowsIterator = 1; rowsIterator <= this.nRows; rowsIterator++) {
-      for (let columnsIterator = 1; columnsIterator <= this.nColumns;
-        columnsIterator++) {
-        this.grid[rowsIterator][columnsIterator].updateState();
+    if (!document.getElementById("toroidalMap").checked) {
+      for (let rowsIterator = 1; rowsIterator <= this.nRows; rowsIterator++) {
+        for (let columnsIterator = 1; columnsIterator <= this.nColumns;
+          columnsIterator++) {
+          this.grid[rowsIterator][columnsIterator].updateState();
+        }
+      }
+    } else {
+      for (let rowsIterator = 0; rowsIterator < this.nRows + 2;
+        rowsIterator++) {
+        for (let columnsIterator = 0; columnsIterator < this.nColumns + 2;
+          columnsIterator++) {
+          this.grid[rowsIterator][columnsIterator].updateState();
+        }
       }
     }
   }
