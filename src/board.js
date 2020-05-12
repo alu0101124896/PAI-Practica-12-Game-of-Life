@@ -14,7 +14,7 @@
 let CellOnBoard;
 /* istanbul ignore next */
 if (typeof require !== 'undefined') { // Execution in node
-  CellOnBoard = require('../src/cell.js').Cell;
+  CellOnBoard = require('./cell.js').Cell;
 }
 /* istanbul ignore next */
 else { // Execution in browser

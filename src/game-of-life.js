@@ -13,7 +13,7 @@
 
 let BoardOnGameOfLife;
 if (typeof require !== 'undefined') { // Execution in node
-  BoardOnGameOfLife = require('../src/board.js').Board;
+  BoardOnGameOfLife = require('./board.js').Board;
 } else { // Execution in browser
   BoardOnGameOfLife = Board;
 }
