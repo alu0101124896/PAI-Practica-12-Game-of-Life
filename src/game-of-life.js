@@ -1,5 +1,5 @@
 /**
- * @file board.js
+ * @file game-of-life.js
  * @author Sergio Tabares Hernández <alu0101124896@ull.edu.es>
  * @since Spring 2020
  * @summary University of La Laguna
@@ -316,5 +316,4 @@ let gameOfLife = new GameOfLife();
 /* istanbul ignore next */
 if (typeof exports !== 'undefined') { // Execution in node
   exports.GameOfLife = GameOfLife;
-} else { // Execution in browser
 }
