@@ -64,22 +64,26 @@ class GraphicalObject {
    * @memberof GraphicalObject
    */
   west() {
-    this.movingPoint.move(-5, 0);
-    this.draw();
+    if (this.movingPoint.xCoord > 10) {
+      this.movingPoint.move(-5, 0);
+      this.draw();
+    }
   }
 
   /**
-   * @description Function that moves the point to the south
+   * @description Function that moves the point to the east
    *
    * @memberof GraphicalObject
    */
   east() {
-    this.movingPoint.move(5, 0);
-    this.draw();
+    if (this.movingPoint.xCoord < this.CANVAS.width - 10) {
+      this.movingPoint.move(5, 0);
+      this.draw();
+    }
   }
 
   /**
-   * @description
+   * @description Function that resets the canvas and draws the point
    *
    * @memberof GraphicalObject
    */
