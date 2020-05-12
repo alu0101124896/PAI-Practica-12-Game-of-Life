@@ -34,26 +34,55 @@ class GraphicalObject {
     this.draw();
   }
 
+  /**
+   * @description Function that moves the point to the north
+   *
+   * @memberof GraphicalObject
+   */
   north() {
-    this.movingPoint.move(0, -5);
-    this.draw();
+    if (this.movingPoint.yCoord > 10) {
+      this.movingPoint.move(0, -5);
+      this.draw();
+    }
   }
 
+  /**
+   * @description Function that moves the point to the south
+   *
+   * @memberof GraphicalObject
+   */
   south() {
-    this.movingPoint.move(0, 5);
-    this.draw();
+    if (this.movingPoint.yCoord < this.CANVAS.height - 10) {
+      this.movingPoint.move(0, 5);
+      this.draw();
+    }
   }
 
+  /**
+   * @description Function that moves the point to the west
+   *
+   * @memberof GraphicalObject
+   */
   west() {
     this.movingPoint.move(-5, 0);
     this.draw();
   }
 
+  /**
+   * @description Function that moves the point to the south
+   *
+   * @memberof GraphicalObject
+   */
   east() {
     this.movingPoint.move(5, 0);
     this.draw();
   }
 
+  /**
+   * @description
+   *
+   * @memberof GraphicalObject
+   */
   draw() {
     this.CONTEXT.clearRect(0, 0, this.CANVAS.width, this.CANVAS.height);
     this.movingPoint.draw(this.CONTEXT);
