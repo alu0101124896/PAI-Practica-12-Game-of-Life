@@ -9,7 +9,7 @@
 
 "use strict";
 
-const GREEN_POINT = 'rgb(127,255,0)';
+const GREEN_POINT = 'forestGreen';
 
 /**
  * @description Class representing a point
@@ -25,24 +25,37 @@ class Point {
    * @param {number} [yCoord=0] - Y coordinate of the point
    * @memberof Point
    */
-  constructor(xCoord = 0, yCoord = 0) {
+  constructor(xCoord = 0, yCoord = 0, radius = 10) {
     this.xCoord = xCoord;
     this.yCoord = yCoord;
+    this.radius = radius;
+  }
+
+  /**
+   * @description Function that moves the point the given displacement
+   *
+   * @param {number} xCoordDisp - number of pixels to be displaced on the X
+   *  coordinate
+   * @param {number} yCoordDisp - number of pixels to be displaced on the Y
+   *  coordinate
+   * @memberof Point
+   */
+  move(xCoordDisp, yCoordDisp) {
+    this.xCoord += xCoordDisp;
+    this.yCoord += yCoordDisp;
   }
 
   /* istanbul ignore next */
   /**
    * @description Function that draws the point
    *
-   * @param {Grid} grid - Grid where the point is located
    * @param {*} CONTEXT - Canvas context
    * @memberof Point
    */
-  draw(grid, CONTEXT) {
+  draw(CONTEXT) {
     CONTEXT.beginPath();
     CONTEXT.fillStyle = GREEN_POINT;
-    CONTEXT.ellipse(this.xCoord, this.yCoord, grid.stepLenght / 2,
-      grid.stepLenght / 2, 0, 0, Math.PI * 2);
+    CONTEXT.ellipse(this.xCoord, this.yCoord, this.radius, this.radius, 0, 0, Math.PI * 2);
     CONTEXT.fill();
   }
 }
