@@ -14,17 +14,13 @@ const GREEN_POINT = 'forestGreen';
 /**
  * @description Class representing a point
  *
+ * @param {number} [xCoord=0] - X coordinate of the point
+ * @param {number} [yCoord=0] - Y coordinate of the point
+ * @param {number} [radius=10] - Radius of the point
+ *
  * @class Point
  */
 class Point {
-
-  /**
-   * @description Constructor that creates an instance of a point.
-   *
-   * @param {number} [xCoord=0] - X coordinate of the point
-   * @param {number} [yCoord=0] - Y coordinate of the point
-   * @memberof Point
-   */
   constructor(xCoord = 0, yCoord = 0, radius = 10) {
     this.xCoord = xCoord;
     this.yCoord = yCoord;

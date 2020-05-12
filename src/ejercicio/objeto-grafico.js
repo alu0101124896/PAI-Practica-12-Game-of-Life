@@ -1,6 +1,6 @@
 /**
  * @file objeto-grafico.js
- * @author Sergio Tabares Hernández <alu0101124896@ull.edu.es>
+ * @author Sergio Tabares Hernández <alu0this.movingPoint.radius1124896@ull.edu.es>
  * @since Spring 2020
  * @summary University of La Laguna
  * @summary Computer Science - Interactive Aplication Programing
@@ -40,9 +40,16 @@ class GraphicalObject {
    * @memberof GraphicalObject
    */
   north() {
-    if (this.movingPoint.yCoord > 10) {
-      this.movingPoint.move(0, -5);
-      this.draw();
+    if (this.movingPoint.yCoord > this.movingPoint.radius) {
+      if (document.getElementById("numOfPixels").value <
+        this.movingPoint.yCoord - this.movingPoint.radius) {
+        this.movingPoint.move(0, -document.getElementById("numOfPixels").value);
+        this.draw();
+      } else {
+        this.movingPoint.
+          move(0, -(this.movingPoint.yCoord - this.movingPoint.radius));
+        this.draw();
+      }
     }
   }
 
@@ -52,9 +59,16 @@ class GraphicalObject {
    * @memberof GraphicalObject
    */
   south() {
-    if (this.movingPoint.yCoord < this.CANVAS.height - 10) {
-      this.movingPoint.move(0, 5);
-      this.draw();
+    if (this.movingPoint.yCoord < this.CANVAS.height - this.movingPoint.radius) {
+      if (document.getElementById("numOfPixels").value <
+        this.CANVAS.height - (this.movingPoint.yCoord + this.movingPoint.radius)) {
+        this.movingPoint.move(0, document.getElementById("numOfPixels").value);
+        this.draw();
+      } else {
+        this.movingPoint.
+          move(0, this.movingPoint.yCoord + this.movingPoint.radius);
+        this.draw();
+      }
     }
   }
 
@@ -64,8 +78,8 @@ class GraphicalObject {
    * @memberof GraphicalObject
    */
   west() {
-    if (this.movingPoint.xCoord > 10) {
-      this.movingPoint.move(-5, 0);
+    if (this.movingPoint.xCoord > this.movingPoint.radius) {
+      this.movingPoint.move(-document.getElementById("numOfPixels").value, 0);
       this.draw();
     }
   }
@@ -76,8 +90,8 @@ class GraphicalObject {
    * @memberof GraphicalObject
    */
   east() {
-    if (this.movingPoint.xCoord < this.CANVAS.width - 10) {
-      this.movingPoint.move(5, 0);
+    if (this.movingPoint.xCoord < this.CANVAS.width - this.movingPoint.radius) {
+      this.movingPoint.move(document.getElementById("numOfPixels").value, 0);
       this.draw();
     }
   }
