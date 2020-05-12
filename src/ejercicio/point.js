@@ -37,8 +37,8 @@ class Point {
    * @memberof Point
    */
   move(xCoordDisp, yCoordDisp) {
-    this.xCoord += xCoordDisp;
-    this.yCoord += yCoordDisp;
+    this.xCoord += Number(xCoordDisp);
+    this.yCoord += Number(yCoordDisp);
   }
 
   /* istanbul ignore next */

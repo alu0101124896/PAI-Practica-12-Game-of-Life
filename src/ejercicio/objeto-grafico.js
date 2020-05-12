@@ -66,7 +66,7 @@ class GraphicalObject {
         this.draw();
       } else {
         this.movingPoint.
-          move(0, this.movingPoint.yCoord + this.movingPoint.radius);
+          move(0, this.CANVAS.height - (this.movingPoint.yCoord + this.movingPoint.radius));
         this.draw();
       }
     }
@@ -79,8 +79,15 @@ class GraphicalObject {
    */
   west() {
     if (this.movingPoint.xCoord > this.movingPoint.radius) {
-      this.movingPoint.move(-document.getElementById("numOfPixels").value, 0);
-      this.draw();
+      if (document.getElementById("numOfPixels").value <
+        this.movingPoint.xCoord - this.movingPoint.radius) {
+        this.movingPoint.move(-document.getElementById("numOfPixels").value, 0);
+        this.draw();
+      } else {
+        this.movingPoint.
+          move(-(this.movingPoint.xCoord - this.movingPoint.radius), 0);
+        this.draw();
+      }
     }
   }
 
@@ -91,8 +98,15 @@ class GraphicalObject {
    */
   east() {
     if (this.movingPoint.xCoord < this.CANVAS.width - this.movingPoint.radius) {
-      this.movingPoint.move(document.getElementById("numOfPixels").value, 0);
-      this.draw();
+      if (document.getElementById("numOfPixels").value <
+        this.CANVAS.width - (this.movingPoint.xCoord + this.movingPoint.radius)) {
+        this.movingPoint.move(document.getElementById("numOfPixels").value, 0);
+        this.draw();
+      } else {
+        this.movingPoint.
+          move(this.CANVAS.width - (this.movingPoint.xCoord + this.movingPoint.radius), 0);
+        this.draw();
+      }
     }
   }
 
